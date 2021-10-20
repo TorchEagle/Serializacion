@@ -85,6 +85,8 @@ public class Serializar {
     }
     
     public static void main(String[] args) {
+    	existencia();
+    	
     	int op = 0;
     	
     	do {
