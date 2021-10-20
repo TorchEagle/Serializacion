@@ -6,7 +6,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -19,7 +18,24 @@ public class Serializar {
     public static void cambiarArchivo() {
     	System.out.println("Que archivo quieres usar para serializar?: ");
     	archivo = new File(sc.nextLine());
+    	existencia();
     }
+    
+   //Metodo que realiza un exists() con el archivo y llama al metodo confirmacion con el valor del exists como entrada
+  	private static void existencia() {
+  		boolean existencia = archivo.exists();
+  		confirmacion(existencia);
+  	}
+  	
+  	//Metodo que, segun si el valor booleano de entrada es verdadero o falso, hara que el programa vuelva al menu principal o que vuelva al metodo selectorArchivo() respectivamente
+  	private static void confirmacion(boolean existencia) {
+  		if (existencia == true)
+  			System.out.println("OK");
+  		else {
+  			System.out.println("El archivo que la ruta especifica no existe. Por favor, asegúrese de asignar la ruta de un archivo que exista");
+  			cambiarArchivo();
+  		}
+  	}
     
     public static void anyadirCoche() {
     	String nombre;
