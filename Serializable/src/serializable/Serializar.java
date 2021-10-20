@@ -16,6 +16,11 @@ public class Serializar {
     static Scanner sc = new Scanner(System.in);
     static File archivo = new File("D:\\Acceso a Datos\\Coches.bin");
     
+    public static void cambiarArchivo() {
+    	System.out.println("Que archivo quieres usar para serializar?: ");
+    	archivo = new File(sc.nextLine());
+    }
+    
     public static void anyadirCoche() {
     	String nombre;
     	int potencia;
@@ -68,30 +73,34 @@ public class Serializar {
     	
     	do {
     		System.out.println("Que quieres hacer?\n**********************************************");
-            System.out.println("1. Anyadir un objeto a la lista");
-            System.out.println("2. Importar de archivo");
-            System.out.println("3. Exportar a archivo");
-            System.out.println("4. Mostrar lista");
-            System.out.println("5. Salir");
+    		System.out.println("1. Cambiar archivo de serializado");
+            System.out.println("2. Anyadir un objeto a la lista");
+            System.out.println("3. Importar de archivo");
+            System.out.println("4. Exportar a archivo");
+            System.out.println("5. Mostrar lista");
+            System.out.println("6. Salir");
             
             try {
                 op = sc.nextInt();
                 sc.nextLine();
                 
                 switch (op) {
-                    case 1:
+                	case 1:
+                		cambiarArchivo();
+                		break;
+                    case 2:
                         anyadirCoche();
                         break;
-                    case 2:
+                    case 3:
                         Deserializar();
                         break;
-                    case 3:
+                    case 4:
                         Serializar();
                         break;
-                    case 4:
+                    case 5:
                         mostrarTodo();
                         break;
-                    case 5:
+                    case 6:
                         System.out.println("Saliendo...");
                         break;
                     default:
@@ -101,7 +110,7 @@ public class Serializar {
                 System.out.println("Introduce un numero por favor.");
                 sc.nextLine();
             }
-    	} while (op != 5);
+    	} while (op != 6);
     }
 	
 }
