@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class Serializar {
 	static ArrayList <Coche> listaCoches = new ArrayList<Coche>();
     static Scanner sc = new Scanner(System.in);
-    static File archivo = new File("D:\\Acceso a Datos\\Coches.bin");
+    static File archivo = new File("Coches.bin");
     
     public static void cambiarArchivo() {
     	System.out.println("Que archivo quieres usar para serializar?: ");
